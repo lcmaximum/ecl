@@ -1,0 +1,57 @@
+body {
+    font-family: sans-serif;
+}
+
+h2 {
+    color: red;
+}
+
+h1 {
+    color: blue;
+}
+
+nav {
+    background:lightblue;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+}
+
+a {
+    text-decoration: none;
+    padding: 5px;
+}
+
+nav a:hover {
+    font-weight: 600;
+    color:antiquewhite;
+}
+
+.card-content {
+    border: solid;
+}
+
+.card-content:hover {
+    color: red;
+}
+
+.index-episode-title {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.index-series-title {
+    font-size: 20px;
+}
+
+.index-season-ep-info {
+    font-size: 16px;
+}
+
+.index-ep-headline {
+    font-style: italic;
+}

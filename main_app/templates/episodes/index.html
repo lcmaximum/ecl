@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>all the episodes</h2>
+
+
+{% for episode in episodes %}
+<a href="{% url 'detail' episode.id %}" > 
+<div class="card">
+   
+      <div class="card-content">
+        <span class="index-series-title"> {{episode.series_title}}</span><br />
+        <span class="index-episode-title"> {{ episode.ep_title }}</span><br /> 
+        
+        <span class="index-season-ep-info">Season {{ episode.ep_season }}, Episode {{ episode.ep_number }}</span>
+        <p class = "index-ep-headline">"{{ episode.user_headline }}"</p>
+
+      </div>
+   </a>
+  </div>
+{% endfor %}
+
+{% endblock %}

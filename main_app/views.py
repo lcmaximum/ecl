@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Episode
+from .models import Episode, Character
 from .forms import ReviewForm
 
 
@@ -22,7 +22,9 @@ def episodes_index(request):
 def episode_detail(request, episode_id):
     episode= Episode.objects.get(id=episode_id)
     review_form = ReviewForm()
-    return render(request, 'episodes/detail.html',{'episode': episode, 'review_form': review_form})
+    char_ids = episode.characters.all().values_list('id')
+    characters = Character.objects.exclude(id__in=char_ids)
+    return render(request, 'episodes/detail.html',{'episode': episode, 'review_form': review_form, 'characters': characters})
 
 def add_review(request, episode_id):
     form = ReviewForm(request.POST)
@@ -47,3 +49,31 @@ class EpisodeUpdate(UpdateView):
 class EpisodeDelete(DeleteView):
     model=Episode
     success_url='/episodes/'
+
+class CharList(ListView):
+  model = Character
+
+class CharDetail(DetailView):
+  model = Character
+
+class CharCreate(CreateView):
+  model = Character
+  fields = '__all__'
+
+class CharUpdate(UpdateView):
+  model = Character
+  fields = ['played_by', 'description']
+
+class CharDelete(DeleteView):
+  model = Character
+  success_url = '/characters/'
+
+def assoc_char(request, episode_id, char_id):
+  episode = Episode.objects.get(id=episode_id)
+  episode.characters.add(char_id)
+  return redirect('detail', episode_id=episode_id)
+
+def unassoc_char(request, episode_id, char_id):
+  episode = Episode.objects.get(id=episode_id)
+  episode.characters.remove(char_id)
+  return redirect('detail', episode_id=episode_id)

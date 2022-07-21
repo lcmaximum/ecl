@@ -12,6 +12,8 @@ h1 {
 
 nav {
     background:lightblue;
+    padding: 10%;
+    height: 150px;
 }
 
 ul {
@@ -30,6 +32,26 @@ nav a:hover {
     font-weight: 600;
     color:antiquewhite;
 }
+
+#detail-details {
+    width: 100%;
+    background:lightsteelblue;
+}
+
+#detail-main {
+    display: flex;
+    flex-direction: row;
+    border: solid green;
+}
+
+#detail-characters, #detail-reviews {
+    display: flex;
+    flex-direction: column;
+    border: dotted;
+    padding: 5%;
+}
+
+
 
 .card-content {
     border: solid;

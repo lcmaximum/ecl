@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Available Characters</h1>
+
+{% for char in char_list %}
+<div>
+  <a href="{% url 'char_detail' char.id %}">
+    {{ char.name }}
+    Played by {{char.played_by}}
+            <p>{{ char.description }}</p>
+        </div>
+  </a>
+{% endfor %}
+
+{% endblock %}

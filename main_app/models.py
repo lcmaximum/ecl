@@ -4,12 +4,26 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+class Character(models.Model):
+  name = models.CharField(max_length=50)
+  played_by = models.CharField(max_length=50)
+  description = models.CharField(max_length=75)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('char_detail', kwargs={'pk': self.id})
+
+
 class Episode(models.Model):
     series_title = models.CharField(max_length=100)
     ep_title = models.CharField(max_length=150)
     ep_season = models.IntegerField()
     ep_number = models.IntegerField()
     user_headline = models.CharField(max_length=100)
+
+    characters = models.ManyToManyField(Character)
 
     def __str__(self):
         return f'{self.ep_title} ({self.series_title})'

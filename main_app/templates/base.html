@@ -16,9 +16,10 @@
     <nav><ul>
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'episodes_index' %}">All Episodes</a></li>
+
+        <li><a href="{% url 'episode_create' %}">Add Episode</a> </li>
         {% if user.is_authenticated %}
         <!-- My Episodes-->
-        <li><a href="{% url 'episode_create' %}">Add Episode</a> </li>
         <li><a href="{% url 'profile'%}">My Collections</a> </li>
         <li><a href="{% url 'logout' %}">Log Out</a></li>
         {% else %}

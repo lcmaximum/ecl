@@ -2,11 +2,10 @@
 {% block content %}
 <div id='detail-details'><h1>{{ episode.series_title}} - "{{episode.ep_title}}"</h1>
 <h3>Season {{ episode.ep_season}}, Episode {{ episode.ep_number }}</h3>
-<p></p>
 
-
-    <a href="{% url 'episode_update' episode.id %}">Edit</a>
-    <a href="{% url 'episode_delete' episode.id %}">Delete</a>
+<div id="episode-edit-delete">
+<a href="{% url 'episode_delete' episode.id %}"> Delete Episode </a>
+<a href="{% url 'episode_update' episode.id %}"> Edit Episode Details</a></div>
 
   </div>
 <div id="detail-main">  

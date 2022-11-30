@@ -1,8 +1,9 @@
 body {
     font-family: sans-serif;
-    font-size: 20px;
+    font-size: 1.25em;
     background:rgb(172, 206, 240);
-    max-width: 1024px;
+    max-width: 85vw;
+    margin: 0 auto;
 }
 
 
@@ -12,8 +13,9 @@ h1 {
 
 nav {
     
-    padding: 2%;
-    font-size: 28px;
+    padding: 1ch;
+    font-size: 0.75em;
+    border:1px solid rgb(113, 200, 230);
 }
 
 ul {
@@ -25,31 +27,27 @@ ul {
 
 nav a {
     text-decoration: none;
-    padding: 15px;
+  
 }
 
 a {
     text-decoration: none;
     margin-right: 8px;
     color:darkblue;
-    padding: 4px;
+    padding: 3ch;
 }
 
-a:hover {
-    
-    background:azure;
-    border-radius: 10px;
-}
 
 nav a:hover {
     font-weight: 600;
-    
+    background:azure;
+    border-radius: 5px;
 }
 
 #detail-details {
-    width: 100%;
+   
     background:rgb(113, 200, 230);
-    max-width:1024px;
+    max-width:85vw;
 }
 
 #episode-edit-delete {
@@ -67,8 +65,8 @@ nav a:hover {
 #detail-characters, #detail-reviews {
     display: flex;
     flex-direction: column;
-    padding: 5%;
-    min-width: 325px;
+    padding: 3ch;
+    min-width: 40vw;
     margin-top:10px;
 }
 
@@ -84,16 +82,16 @@ nav a:hover {
 }
 
 .index-episode-title {
-    font-size: 22px;
+    font-size: 1.25em;
     font-weight: 600;
 }
 
 .index-series-title {
-    font-size: 20px;
+    font-size: 1em;
 }
 
 .index-season-ep-info {
-    font-size: 16px;
+    font-size: 0.75em;
 }
 
 .index-ep-headline {
